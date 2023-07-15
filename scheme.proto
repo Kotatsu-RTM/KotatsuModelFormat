@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package dev.siro256.kotatsumodelformat;
+
+message Vector2f {
+    float x = 1;
+    float y = 2;
+}
+
+message Vector3f {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message ModelVertex {
+    int32 vertex = 1;
+    int32 faceNormal = 2;
+    optional int32 uv = 3;
+}
+
+message Triangle {
+    ModelVertex firstVertex = 1;
+    ModelVertex secondVertex = 2;
+    ModelVertex thirdVertex = 3;
+}
+
+message Face {
+    optional int32 material = 1;
+    Triangle coordinates = 2;
+}
+
+message ModelObject {
+    string name = 1;
+    repeated Face faces = 2;
+}
+
+message ModelFile {
+    repeated Vector3f vertices = 1;
+    repeated Vector3f normals = 2;
+    repeated Vector2f uvs = 3;
+    repeated string materials = 4;
+    repeated ModelObject objects = 5;
+}
