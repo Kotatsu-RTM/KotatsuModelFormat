@@ -15,7 +15,7 @@ message Vector3f {
 
 message ModelVertex {
     int32 vertex = 1;
-    int32 faceNormal = 2;
+    int32 normal = 2;
     optional int32 uv = 3;
 }
 
